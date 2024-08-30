@@ -13,6 +13,10 @@ class ThemeApp {
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
+      iconTheme: const IconThemeData(
+        color: IconColor.iconColor,
+        size: 24,
+      ),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(16),
@@ -22,8 +26,8 @@ class ThemeApp {
     ),
     textTheme: TextTheme(
       titleLarge: GoogleFonts.cairo(
-        color: TextColor.textColorLight,
-        fontSize: 24,
+        color: TextColor.textColorBlack,
+        fontSize: 18,
         fontWeight: FontWeight.bold,
       ),
       titleMedium: GoogleFonts.cairo(
@@ -32,25 +36,28 @@ class ThemeApp {
         fontWeight: FontWeight.bold,
       ),
       titleSmall: GoogleFonts.cairo(
-        color: TextColor.textColorLight,
-        fontSize: 18,
+        color: TextColor.textColorGray,
+        fontSize: 16,
         fontWeight: FontWeight.bold,
       ),
       bodyLarge: GoogleFonts.cairo(
-        color: TextColor.textColorLight,
+        color: TextColor.textColorBlack,
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
       bodyMedium: GoogleFonts.cairo(
-        color: TextColor.textColorLight,
+        color: TextColor.textColorBlack,
         fontSize: 14,
         fontWeight: FontWeight.normal,
       ),
       bodySmall: GoogleFonts.cairo(
-        color: TextColor.textColorLight,
+        color: TextColor.textColorBlack,
         fontSize: 12,
         fontWeight: FontWeight.bold,
       ),
+    ),
+    drawerTheme: DrawerThemeData(
+
     ),
   );
 }
