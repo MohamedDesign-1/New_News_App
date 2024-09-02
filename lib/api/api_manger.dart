@@ -1,11 +1,13 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:injectable/injectable.dart';
 import 'package:newnewsapp/api/api_constatnts.dart';
 import 'package:newnewsapp/models/SourceResponse.dart';
 import 'package:newnewsapp/models/news_response.dart';
 
+@injectable
 class ApiManger {
-  static Future<SourceResponse?> getSources(String categoryId) async {
+  Future<SourceResponse?> getSources(String categoryId) async {
     Uri url = Uri.https(ApiConstatnts.baseUrl, ApiConstatnts.sourceApi,
         {'apiKey': ApiConstatnts.apiKey, 'category': categoryId});
     try {
@@ -19,7 +21,7 @@ class ApiManger {
     }
   }
 
-  static Future<NewsResponse?> getNewsBySourceId(String sourceId) async {
+  Future<NewsResponse?> getNewsBySourceId(String sourceId) async {
     Uri url = Uri.https(ApiConstatnts.baseUrl, ApiConstatnts.newsApi,
         {'apiKey': ApiConstatnts.apiKey, 'sources': sourceId});
     try {

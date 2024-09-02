@@ -1,14 +1,16 @@
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:newnewsapp/pages/category/cubit/source_states.dart';
+import 'package:newnewsapp/repo/sources/source_repo.dart';
 
-import '../../../api/api_manger.dart';
-
+@injectable
 class CategoryDetailsViewModel extends Cubit<SourceStates> {
-  CategoryDetailsViewModel(): super(SourceLoadingState());
+  SourceRepo sourceRepo;
+  CategoryDetailsViewModel({required this.sourceRepo}): super(SourceLoadingState());
   void getSources(String categoryId) async{
     try {
       emit(SourceLoadingState());
-      var response = await ApiManger.getSources(categoryId);
+      var response = await sourceRepo.getSources(categoryId);
       if (response?.status == 'error') {
         emit(SourceErrorState(response!.message!));
         return ;

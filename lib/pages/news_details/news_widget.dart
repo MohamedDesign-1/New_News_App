@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:newnewsapp/api/api_manger.dart';
-import 'package:newnewsapp/models/news_response.dart';
 import 'package:newnewsapp/style/app_color.dart';
 import 'package:newnewsapp/style/app_theme.dart';
 import 'package:newnewsapp/widgets/news_item.dart';
 
+import '../../di/di.dart';
 import '../../models/SourceResponse.dart';
 import 'cubit/news_states.dart';
 import 'cubit/news_view_model.dart';
@@ -20,7 +19,7 @@ class NewsWidget extends StatefulWidget {
 }
 
 class _NewsWidgetState extends State<NewsWidget> {
-  NewsViewModel viewModel = NewsViewModel();
+  NewsViewModel viewModel = getIt<NewsViewModel>();
 
   @override
   void initState() {
@@ -46,7 +45,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                 Text('Something went wrong'),
                 ElevatedButton(
                     onPressed: () {
-                      ApiManger.getNewsBySourceId(widget.source.id ?? '');
+                      viewModel.getNewsBySourceId(widget.source.id ?? '');
                       setState(() {});
                     },
                     child: Text('Try Again',

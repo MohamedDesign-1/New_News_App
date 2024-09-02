@@ -7,11 +7,13 @@ import 'package:newnewsapp/pages/news_details/news_details.dart';
 import 'package:newnewsapp/pages/search_screen/cubit/search_view_model.dart';
 import 'package:newnewsapp/pages/splash_screen/splash_screen.dart';
 import 'package:newnewsapp/style/app_theme.dart';
+import 'di/di.dart';
 import 'my_bloc_observer.dart';
 
 void main() {
   Bloc.observer = MyBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies();
   runApp(const NewsApp());
 }
 
